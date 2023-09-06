@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div p {
+      color: blue;
+    }
+    div > p {
+      color: crimson;
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+    <p>자식</p>
+    <ol>
+      <p>자손</p>
+    </ol>
+    <p>자식</p>
+  </div>
+</body>
+</html>
+
+<!-- a. 자손 결협자와 자식 결합자의 차이는?
+자손결합자 : 첫번쨰 요소의 자손요소들을 선택 (하위레벨 상관없이)
+자식결합자 : 첫 번째 요소의 직계 자식만을 선택 (한단계 아래 자식들만) -->
