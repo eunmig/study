@@ -1,0 +1,30 @@
+
+body {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    font-family: 'Gowun Batang', serif;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #6b8ebd;
+    position: fixed;
+    top: 0;
+    z-index: 9;
+    box-shadow: 10px 5px 5px 5px rgba(255, 255, 255, .2);
+}
+
+header > .inner {
+    height: 100px;
+    margin: auto;
+}
+
+.inner {
+    display: block;
+    width: 100%;
+    margin: auto;
+    position: relative;
+}
