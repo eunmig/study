@@ -1,0 +1,50 @@
+1. 가상환경 생성
+python -m venv venv
+
+2. 가상환경 활성화
+source venv/Scripts/activate
+
+3. django 설치
+pip install Django
+
+4. 의존성 파일 생성
+pip list
+pip freeze > requirements.txt
+
+5. django 프로젝트 생성
+django-admin startproject 프로젝트이름 .
+
+6. django 서버 실행
+python manage.py runserver
+
+7. 앱 생성
+python manage.py startapp 앱이름'복수형권장'
+
+7. 앱 등록
+# setting.py
+
+INSTALLED_APPS = [
+  '앱이름',
+  ```
+]
+
+8. 요청
+# urls.py
+
+urlpatterns = [
+  path('요청명/', view.함수명),
+  ```
+]
+
+9.반환 함수 정의
+# views.py
+
+# 모든 view 함수는 첫번째 인자로 request 객체 필수적으로 받음
+def 함수명(request):
+  return render(request, '응답객체반환')
+
+10. template 폴더 생성
+앱이름 > template > 폴더생성 > view함수의 응답객체
+
+11. 서버 재실행
+python manage.py runserver
