@@ -25,7 +25,7 @@ def dijkstra(start):
             # next_node로 가는 누적거리
             new_cost = dist + cost
 
-            # 누적거리가 기존보다 크다면
+            # 누적거리가 기존보다 작다면
             if distance[next_node] <= new_cost:
                 continue
 

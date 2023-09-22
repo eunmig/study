@@ -6,6 +6,7 @@ parent = [i for i in range(10)]
 
 # find-set
 def find_set(x):
+
     if parent[x] == x:
         return x
 
