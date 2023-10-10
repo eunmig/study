@@ -1,0 +1,31 @@
+CREATE TABLE zoo (
+  name TEXT NOT NULL,
+  eat TEXT NOT NULL,
+  weight INT NOT NULL,
+  height INT,
+  age INT
+);
+
+-- 1) 
+INSERT INTO zoo VALUES 
+(5, 180, 210, 'gorilla', 'omnivore');
+문제점 : 열의 순서와 값의 순서가 일치하지않음
+해결방안 :
+INSERT INTO zoo VALUES 
+('gorilla', 'omnivore', 180, 210, 5);
+
+-- 2)
+INSERT INTO zoo (rowid, name, eat, weight, age) VALUES
+(10,'dolphin', 'carnivore', 210, 3),
+(10, 'alligator', 'carnivore', 250, 50);
+문제점 : rowid 라는 열이 없음
+해결방안 :rowid -> height
+
+-- 3)
+INSERT INTO zoo (name, eat, age) VALUES
+('dolphin', 'carnivore', 3);
+문제점 : 세 번째 INSERT 문에서는 "height" 값을 제공하지 않았지만
+        해당 열에는 NOT NULL 제약 조건이 있으므로 오류가 발생
+해결방안 :
+INSERT INTO zoo (name, eat, age, height) VALUES
+('dolphin', 'carnivore', 3, NULL);

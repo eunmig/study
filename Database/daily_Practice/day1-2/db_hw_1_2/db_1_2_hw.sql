@@ -1,0 +1,5 @@
+CREATE TABLE contacts (
+    email VARCHAR(50) NOT NULL UNIQUE,
+    name VARCHAR(50) NOT NULL,
+    age INTEGER NOT NULL
+);
