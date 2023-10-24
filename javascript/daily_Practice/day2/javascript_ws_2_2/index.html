@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 동등 연산자를 활용한 조건문
+    if (0 == []) {
+      console.log('true?')
+    } else {
+      console.log('false?')
+    }
+    // 실행 결과 : true?
+    // 리스트가 비어있다면[] == 0 -> 암묵적 타입 변환
+
+    // 일치 연산자를 활용한 조건문
+    if ({} === false) {
+      console.log('true?')
+    } else {
+      console.log('false?')
+    }
+    // 실행 결과 : false?
+    // 같은 객체를 가리키거나, 같은 타입이면서 같은 값인지 비교 -> 암묵적 타입변화 X
+
+    // 논리 연산자를 활용한 단축 평가
+    console.log(0 && 13)
+    // 실행 결과 : 0
+    console.log(0 || 13)
+    // 실행 결과 : 13
+
+    let num = 12
+    num /= 3
+    console.log(num)
+    // 실행 결과 : 4
+    // 12/3 = 4
+
+    const number = 13
+    number++
+    // 실행 결과 : TypeError : Assignment to constant variable
+    // const 선언은 재 할당 되지않아서 Error 발생
+  </script>
+</body>
+</html>
