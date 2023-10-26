@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <style>
+    .done {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <input type="text" id="todoInput"> <!-- 입력 필드에 ID 추가 -->
+    <button type="submit">Todo</button>
+  </form>
+  <ul id="todoList"></ul> <!-- 목록에 ID 추가 -->
+
+<script>
+  const form = document.querySelector('form')
+  const todoInput = document.getElementById('todoInput') // 입력 필드 선택
+  const todoList = document.getElementById('todoList') // 목록 선택
+
+  function addTodo (event) {
+    event.preventDefault()
+    
+    // 입력 필드 찾고 해당 입력 필드의 값 저장
+    const todoText = todoInput.value.trim() // 입력 값 얻기 및 앞뒤 공백 제거
+
+    if (todoText !== '') {
+      // li 엘리먼트를 생성하고 input 엘리먼트의 값을 데이터로 저장
+      const li = document.createElement('li')
+      li.textContent = todoText;
+
+      // 삭제 버튼을 생성하고 li 엘리먼트의 자식으로 추가
+      const deleteButton = document.createElement('button')
+      deleteButton.textContent = 'Delete'
+
+      // 삭제 버튼을 클릭하면 해당 li 엘리먼트를 삭제
+      deleteButton.addEventListener('click', function () {
+        todoList.removeChild(li)
+      })
+
+      // li 엘리먼트를 클릭하면 취소선이 토글됨
+      li.addEventListener('click', function () {
+        li.classList.toggle('done')
+      })
+
+      // ul 엘리먼트의 자식으로 li 엘리먼트 추가
+      li.appendChild(deleteButton);
+      todoList.appendChild(li);
+
+      // 입력 필드 초기화
+      todoInput.value = ''
+    }
+  }
+
+  form.addEventListener('submit', addTodo)
+</script>
+</body>
+</html>
