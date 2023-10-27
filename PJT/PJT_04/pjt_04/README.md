@@ -1,18 +1,58 @@
-# pjt04
+# project 04
+팀원: 송의찬, 이민지, 박은미
+## 1. 메인페이지
+- 로그인 전/후 의 메인페이지 작성
+- 부트스트랩을 사용해 네비게이션 생성
+#### 밖에 있는 base.html에 네비게이션 코드 받아 수정
 
-처음으로 개인 프로젝트가 아닌 페어로 진행한 프로젝트여서 처음엔 부담이 되었다.
-하지만 혼자하는 것보다 집단지성의 힘으로 고민하니 해결되었다.
+    1.1 원래 코드의 리스트를 사용하지 않고 a 태그를 통해 버튼 작성, a태그를 써서 나오는 밑의 밑줄은 스타일태그에서 a {
+        text-decoration: none;
+      }
+      를 넣어 삭제했다.
+    1.2 a 태그의 링크들은 각 페이지들에서 만든 url들을 따왔다.
+## 2. 영화 작성 페이지
+- create.html 생성
+- title, description, 제출 버튼
+#### 실습 10_3에서 만든 코드들을 따와 이름만 바꿔줬다
+    2.1 form태그 사용해 create.html을 만들었다
 
- 처음 틀을 만들때 지난 강의를 참고해 프로젝트 스켈레톤을 작성한것이 가장 크게 도움이 되었다.
-
- 요구사항에 맡게 디테일을 수정해 나아가며 해결되지 않는것은 구글링을 하고 서로 자료를 찾아보며 수정해 나아갔고 지난 강의의 css와 bootstrap도 사용하며 프로젝트를 완성 할 수 있었다.
-
- 가장 시간이 오래걸린 것은 회원정보 수정 페이지의 우리가 작성하지않고 django의 기본인 password의 disabled를 지우는데 시간을 많이 소모하였다.
-
- ## 느낀점
-
- 1. 하나의 게시판을 구성하는 프로세스, 회원 정보를 다루는 프로세스가 어떻게 흘러가는지 재확인할 수 있는 시간이었음
-
-2. 각각의 테이블이 어떻게 구성되어있는지와 테이블끼리 어떤 관계를 가지고 있는지 확인할 수 있는 프로젝트였음
-
-3. 페어와 함께 네비게이터와 드라이버 역할을 바꿔가며 프로그래밍을 진행하는 것에서 오는 다양한 장점들을 느낄 수 있었음
+## 3. 상세 페이지
+- 영화 제목, 내용 보여주고
+- update버튼, delete버튼 제작
+- back 버튼 제작
+#### create에서 만든 페이지를 수정하기 위해 detail 만듬
+    3.1 form 태그 사용해 method, url 받고
+    3.2 버튼을 제작해야 해서 버튼에서 onclick으로 url 연결했다
+    3.3 버튼 색깔은 부트스트랩 코드를 사용했다
+    3.4 delete 버튼의 타입은 submit으로 해서 for문의 url을 받았다
+## 4. 영화 수정 페이지
+- 작성했던 title, description 변경 가능
+#### update 만듬
+    4.1 원래 코드에서 이름만 바꿔줬다
+## 5. 로그인 페이지
+- 로그인 가능한 페이지
+#### login 만듬
+    5.1 역시 원래 코드에서 이름만 바꿔줬다
+## 6. 회원가입 페이지
+- accounts의 forms.py 에서 field에 'username', 'email','first_name', 'last_name' 넣어 원하는 것만 입력할 수 있게 함
+#### accounts의 forms.py에서 만듬
+    6.1 CustomUserCreationForm 클래스를 만들었다
+    6.2 field에 'username', 'email','first_name', 'last_name' 넣어 원하는 것만 입력할 수 있게 함
+## 7. 회원 정보 수정 페이지
+- 원래 나오는 비밀번호를 변경하는 폼 링크를 제거 
+#### accounts의 forms.py에서 만듬 
+    7.1 CustomUserChangeForm 클래스 만들었다
+    7.2 field에 'email','first_name', 'last_name', 'username' 넣어 원하는 것만 입력할 수 있게 함
+    7.3 장고에서 제공하는 비밀번호 변경폼 (help_Text)을 지우고자 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # 필드에 있는 help_text를 숨깁니다.
+        for field_name in self.fields:
+            self.fields[field_name].help_text = None
+        # 비밀번호가 설정되지 않습니다. 삭제
+        del self.fields['password']
+    넣어줌
+## 8. 비밀번호 수정 페이지
+- 회원정보 수정에서 나오던 비밀번호 변경 폼 링크를 버튼으로 생성
+#### change_password 만듬, update에 넣어줌
+    8.1 form 태그 사용해서 update에 넣어줌
