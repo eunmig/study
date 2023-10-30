@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log('Hi')
+    // promise 객체를 사용하여, promise가 resolve 된 경우에만 'bye'를 출력
+
+    // SSAFY를 출력, Promise 객체를 반환하는 함수
+    function logPrint () {
+      return new Promise(function (resolve) {
+        setTimeout(function (){
+          console.log('SSAFY')
+          resolve()
+        }, 3000)
+
+      })
+    }
+
+    logPrint()
+    .then(() => console.log('Bye'))
+  </script>
+</body>
+</html>
