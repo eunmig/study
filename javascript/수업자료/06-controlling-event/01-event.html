@@ -15,15 +15,16 @@
     // 1. 버튼 선택
     const btn = document.querySelector('#btn')
 
-    // 2. 콜백 함수
-    const detectClick = function (event) {
+    // 2. 콜백함수 작성
+    const clickCallbackFunc = function (event) {
       console.log(event)
-      console.log(event.currenTarget)
+      console.log(event.target)
+      console.log(event.currentTarget)
       console.log(this)
     }
 
     // 3. 버튼에 이벤트 핸들러를 부착
-    btn.addEventListener('click', detectClick)
+    btn.addEventListener('click', clickCallbackFunc)
   </script>
 </body>
 

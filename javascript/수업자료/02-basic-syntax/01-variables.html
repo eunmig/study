@@ -10,30 +10,34 @@
 
 <body>
   <script>
-    // // let
-    // let number = 10
-    // number = 20
-    // console.log(number)   // 20 -> 재할당 가능
+    // let
+    let number = 10
+    number = 20
+    console.log(number)
 
-    // let number    // error -> 재선언 불가능
+    let number = 20
 
-    // // const
-    // const number = 10
-    // number = 20       
-    // console.log(number) //error -> 재할당 불가능
+    // const
+    const number = 10
+    number = 20
+    console.log(number) // Uncaught TypeError: Assignment to constant variable.
 
-    // const number = 20
-    // console.log(number) //error -> 재선언 불가능
+    const number = 20 // Uncaught SyntaxError: Identifier 'number' has already been declared
+
 
     // 블록 스코프
     let x = 1
     if (x === 1) {
       let x = 2
-      
-      console.log(x)  // 2
+      console.log(x) // 2
     }
+    console.log(x) // 1
 
-    console.log(x)  // 1
+    // 템플릿 리터럴
+    const age = 100
+    const message = `홍길동은 ${age}세입니다.`
+    console.log(message)
+
   </script>
 </body>
 

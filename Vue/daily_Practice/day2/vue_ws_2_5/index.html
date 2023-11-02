@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .is-selected {
+      background-color: #eee;
+    }
+
+    .is-required {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>다양한 전시 정보</h1>
+    <hr>
+    <ul>
+      <li :id="exhibition.enTitle" :class="{ 'is-selected': exhibition.isSelected }">
+        <label for="selected">전시 선택</label>
+        <input type="checkbox" name="selected" id="selected" v-model="exhibition.isSelected">
+        <h3>{{ exhibition.koTitle }}</h3>
+        <p v-html="exhibition.description"></p>
+        <hr>
+        <p>{{ exhibition.artMuseum }}</p>
+        <a :href="exhibition.museumURL">전시장 바로가기</a>
+        <hr>
+        <p>입장권 구매하기</p>
+        <div>
+          <p>가격 : {{ exhibition.price }}</p>
+          <span :class="{ 'is-required' : exhibition.totalNum <= 0 }">인원 수 : {{ exhibition.totalNum }} 명 </span>
+           <!-- disabled 조건으로 버튼 활성화 막기 -->
+          <button @click="decreaseNum" :disabled="exhibition.totalNum <= 0">-</button>
+          <button @click="increaseNum" :disabled="exhibition.totalNum >= 10">+</button>
+        </div>
+        <hr>
+        <p>총 입장료 : {{ exhibition.totalNum * exhibition.price }} 원</p>
+      </li>
+    </ul>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+  <script>
+    /*
+      1. 현재 입장 인원의 수가 0명 초과일 때만, 인원 감소 메서드가 실행되도록 코드를 수정하시오.
+      2. 현재 입장 인원의 수가 10명 미만일 때만, 인원 증가 메서드가 실행되도록 코드를 수정하시오.
+      3. 인원 증/감 버튼에 disabled 속성을 부여하시오.
+    - 단, 인원수 기준에 따라 true/false가 할당되도록 한다.
+    - 인원수 기준은 최소 0명이상 최대 10명 이하이다.
+    */
+
+    const { createApp, ref } = Vue
+    
+    const app = createApp({
+      setup() {
+        const exhibition = ref({
+          koTitle : '모네 인사이드',
+          enTitle : 'monet-inside',
+          artMuseum :'예술의 전당',
+          museumURL : 'https://www.sac.or.kr/',
+          description : '<p> &lt;모네 인사이드&gt; 는 빛의 화가 <b>클로드 모네</b>가 남긴 소중한 명작들을 현대적 감각으로 재해석해 음악과 함께 감상하는 미디어아트 전시입니다. </p>',
+          isSelected : false,
+          price : 1000,
+          totalNum : 0
+        })
+
+        const decreaseNum = () => {
+          if ( exhibition.value.totalNum > 0) {
+            exhibition.value.totalNum -= 1
+          }
+        }
+
+        const increaseNum = () => {
+          if (exhibition.value.totalNum < 10) {
+            exhibition.value.totalNum += 1
+          }
+        }
+
+        return {
+          exhibition,
+          decreaseNum,
+          increaseNum
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+</html>

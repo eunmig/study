@@ -25,15 +25,7 @@
     // .then 메서드를 통해 요청이 성공적인 경우의 콜백함수를 정의한다.
     function getDog () {
       axios.get(API_URI)
-      .then(res => {
-
-      // 응답객체의 데이터에서 이미지에 대한 리소스를 img 요소의 src 속성으로 할당한다.
-        const imgUrl = res.data.message
-        const dogImage = document.querySelector('img')
-        dogImage.src = imgUrl
-      })
-      .catch(error => {
-        console.error(error)
+      .then(res => {document.querySelector('img').src = res.data.message
       })
     }
 
