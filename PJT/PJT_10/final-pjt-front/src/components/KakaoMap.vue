@@ -80,6 +80,7 @@
   
   const loc1 =ref('')
   const bank = ref('')
+  const warningMessage = ref('')
   const loadScript =function() {
   
     
@@ -125,6 +126,11 @@
       loc1.value =''
       bank.value =""
       
+      if (list.city.value.length === 0) {
+        warningMessage.value = '해당 지역에 찾는 은행이 없습니다.'
+      } else {
+        warningMessage.value = ''
+      }
   
   }
   

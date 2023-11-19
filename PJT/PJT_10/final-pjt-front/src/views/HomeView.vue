@@ -17,5 +17,33 @@
 </script>
 
 <style scoped>
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa; /* Light gray background */
+  margin: 0;
+}
 
+main {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff; /* White background */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+
+h1 {
+  color: #343a40; /* Dark gray text color */
+}
+
+.sub-head {
+  color: #6c757d; /* Medium gray text color */
+}
+
+p {
+  margin-bottom: 15px;
+  line-height: 1.5;
+  color: #495057; /* Dark gray text color */
+}
 </style>
