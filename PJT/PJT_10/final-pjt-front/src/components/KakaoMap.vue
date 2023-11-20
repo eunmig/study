@@ -1,49 +1,43 @@
 <template>
-
-    <h1>은행 찾아보기</h1>
-        <div class="box">
-        <p class="p">원하는 은행을 지도에서 검색해보세요!</p>
-        <div class="wrapper">
-        
-              <div ref="container" class="first"></div>
-              <div class="control-btns">
-           
-              </div>
-           </div>
-           
-           <div class="list">
-        </div>
-           
-        </div>
+  <h3>주변 은행 찾아보기</h3>
+  <div class="box">
+    <p class="p">원하는 은행을 지도에서 검색해보세요!</p>
+    <div class="wrapper">
+      <div ref="container" class="first"></div>
+      <div class="control-btns"></div>
+    </div>
+    <div class="list">
+    </div>
+  </div>
   
-        <div>
-        <title>주소로 장소 표시하기</title>
-        <select id="sido" v-model="select_area" @input="selected">
-           <option v-for="sido in Object.keys(area)">{{ sido }}</option>
-        </select>
-        <select id="sigugun" v-model="select_sido">
-           <option v-for="sigugun in list_city">{{ sigugun }}</option>
-        </select>
-        <select class="thi" v-model="bank">
-              <option value="" selected disable3d hidden>은행</option>
-              <option value="하나은행">하나은행</option>
-              <option value="국민은행">국민은행</option>
-              <option value="SC제일은행">SC제일은행</option>
-              <option value="신한은행">신한은행</option>
-              <option value="우리은행">우리은행</option>
-              <option value="외환은행">외환은행</option>
-              <option value="한국시티은행">한국시티은행</option>
-              <option value="기업은행">기업은행</option>
-              <option value="농협">농협</option>
-           </select>
-           <button @click="search">검색</button>
-      </div>
+  <div class="map-search">
+    <!-- <title>주소로 장소 표시하기</title> -->
+    <p></p>
+    <select id="sido" v-model="select_area" @input="selected">
+        <option v-for="sido in Object.keys(area)">{{ sido }}</option>
+    </select>
+    <select id="sigugun" v-model="select_sido">
+        <option v-for="sigugun in list_city">{{ sigugun }}</option>
+    </select>
+    <select class="thi" v-model="bank">
+      <option value="" selected disable3d hidden>은행</option>
+      <option value="하나은행">하나은행</option>
+      <option value="국민은행">국민은행</option>
+      <option value="SC제일은행">SC제일은행</option>
+      <option value="신한은행">신한은행</option>
+      <option value="우리은행">우리은행</option>
+      <option value="외환은행">외환은행</option>
+      <option value="한국시티은행">한국시티은행</option>
+      <option value="기업은행">기업은행</option>
+      <option value="농협">농협</option>
+    </select>
+    <button class="btn btn-primary" @click="search">검색</button>
+  </div>
   
-  </template>
+</template>
    
-  <script setup>
+<script setup>
   import { onMounted,ref } from 'vue'
-  
   
   // -------------------
   const list_city = ref([])
@@ -81,9 +75,8 @@
   const loc1 =ref('')
   const bank = ref('')
   const warningMessage = ref('')
+
   const loadScript =function() {
-  
-    
     const script = document.createElement('script')
     const subscr =document.createElement('script')      
     // 동적 로딩을 위해서 autoload=false 추가
@@ -91,30 +84,23 @@
     // kakaomap script loading 후 initMap 실행
     script.addEventListener('load', () => kakao.maps.load(initMap))
     document.head.appendChild(script)
-  
   }
   
   let map = null
   const container = ref(null)
   
   const initMap = () => {
-    
     const options = {
       center: new kakao.maps.LatLng(36.3504119, 127.3845475), // 대전
       level: 6
     }
     map = new kakao.maps.Map(container.value, options)
-  
-  
-  
   }
   
   onMounted(() => {
     if (window.kakao?.maps) {
-     
       initMap()
     } else {
-     
       loadScript()
     }
   })
@@ -131,92 +117,85 @@
       } else {
         warningMessage.value = ''
       }
-  
   }
   
   
   // 키워드 검색 완료 시 호출되는 콜백함수 입니다
   function placesSearchCB (data, status, pagination) {
-      if (status === kakao.maps.services.Status.OK) {
-  
-          // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-          // LatLngBounds 객체에 좌표를 추가합니다
-          var bounds = new kakao.maps.LatLngBounds();
-  
-          for (var i=0; i<data.length; i++) {
-              displayMarker(data[i]);    
-              bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-          }       
-  
-          // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-          map.setBounds(bounds);
-      } 
+    if (status === kakao.maps.services.Status.OK) {
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+        // LatLngBounds 객체에 좌표를 추가합니다
+        var bounds = new kakao.maps.LatLngBounds();
+
+        for (var i=0; i<data.length; i++) {
+            displayMarker(data[i]);    
+            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+        }       
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+        map.setBounds(bounds);
+    } 
   }
   
   // 지도에 마커를 표시하는 함수입니다
   function displayMarker(place) {
-      let infowindow = new kakao.maps.InfoWindow({zIndex:1})
-      // 마커를 생성하고 지도에 표시합니다
-      var marker = new kakao.maps.Marker({
-          map: map,
-          position: new kakao.maps.LatLng(place.y, place.x) 
-      });
-    
-      const close = function(){
-       
-      }
-      // 마커에 클릭이벤트를 등록합니다
-      kakao.maps.event.addListener(marker, 'click', function() {
-          // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-        
-          infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>'); 
-          infowindow.open(map, marker);
-         
-          
-      })
+    let infowindow = new kakao.maps.InfoWindow({zIndex:1})
+    // 마커를 생성하고 지도에 표시합니다
+    var marker = new kakao.maps.Marker({
+        map: map,
+        position: new kakao.maps.LatLng(place.y, place.x) 
+    });
+  
+    const close = function(){
       
-      
-     
+    }
+    // 마커에 클릭이벤트를 등록합니다
+    kakao.maps.event.addListener(marker, 'click', function() {
+        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>'); 
+        infowindow.open(map, marker);
+    })
   }
   
   
-  </script>
-  
+</script>
   
     
-  <style scoped >
-  input{
-    height: 50%;
+<style scoped >
+input {
+    height: 30px;
     margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 200px; /* Add a width to control the size */
   }
+
   button {
-      height: 50%;
-      margin-top: 30px;
-      margin-left: 20px;
+    height: 36px;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
   }
-  .box{
-        
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      
-  }
+
   .list{
-   
       display: flex;
       justify-content: space-between;
-         
-   
   }
+
   .wrapper {
-  
-     
       margin-left: auto;
       margin-right: auto;
       width: 620px;
       height: 420px;    
-    
   }
+
   .first{
       margin-top: 5px;
       width: 600px;
@@ -227,8 +206,6 @@
   
   select{margin-left: 100px;
           margin-top: 30px;
-  
-  
   }
   
   .fir{
@@ -244,8 +221,9 @@
     display: inline-block;
     margin-left: 20px;
   }
+
   .thi{
     margin-left: 20px;
   }
-  </style>
+</style>
   

@@ -17,3 +17,11 @@ class CustomRegisterSerializer(RegisterSerializer):
         cleaned_data = super().get_cleaned_data()
         cleaned_data['salary'] = self.validated_data.get('salary', '')
         return cleaned_data
+    
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    salary = serializers.IntegerField()
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'first_name', 'last_name', 'salary']

@@ -1,0 +1,92 @@
+/* Login status styles */
+.login-status {
+    position: fixed;
+    top: 0;
+    right: 10px;
+    padding: 10px;
+    background-color: #ffffff; /* White background */
+    color: #0d0000; /* Text color */
+    z-index: 1;
+    width: 100%;
+  }
+  
+  /* Navigation Styles */
+  nav {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: #fdfdfd; /* Google blue */
+    padding: 10px 0;
+    z-index: 1;
+  }
+  
+  .link {
+    color: #130000;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .link:hover {
+    background-color: #333; /* Light gray on hover */
+  }
+  
+  .nav-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px; /* Adjust the distance from the navigation bar */
+  }
+  
+  /* Main page styles */
+  .main-page {
+    background-color: #ffffff; /* White background */
+    color: #333; /* Text color */
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 1000px; /* Adjust the maximum width of the main page */
+  }
+  
+  .main-content {
+    padding-top: 60px; /* Adjust the padding to be equal to the height of your fixed navbar */
+    margin: 20px;
+  }
+  
+  #carouselExampleIndicators {
+    margin-top: 60px; /* nav의 아래에 위치하도록 조정 */
+    z-index: 0; /* nav 위에 나타나도록 조정 */
+    position: sticky;
+  }
+  
+  .carousel-item {
+    text-align: center; /* 이미지 중앙 정렬 */
+  }
+  
+  .carousel-inner img {
+    display: inline-block;
+    max-width: 100%;
+    max-height: 550px; /* 적절한 높이로 조절하세요 */
+    height: auto;
+    position: relative;
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    left: 30px;
+    right: 0;
+    top: 50%; /* 위에서 중앙으로 이동 */
+    transform: translateY(-50%);
+    padding: 0 20px; /* 원하는 여백 값 조절 */
+  }
+
+  .carousel-caption-img {
+    width: 60%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }

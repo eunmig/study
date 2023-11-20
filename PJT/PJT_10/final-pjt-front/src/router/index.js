@@ -8,6 +8,8 @@ import DetailView from '@/views/DetailView.vue'
 import FinanceListView from '@/views/FinanceListView.vue'
 import FinanceDetailView from '@/views/FinanceDetailView.vue'
 import BankView from '@/views/BankView.vue'
+import ExchangeView from '@/views/ExchangeView.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -56,6 +58,11 @@ const router = createRouter({
       path: '/bank',
       name: 'Bank',
       component: BankView
+    },
+    {
+      path: '/exchange',
+      name: 'Exchange',
+      component: ExchangeView
     }
 
   ]

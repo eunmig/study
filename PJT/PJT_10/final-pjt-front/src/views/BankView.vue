@@ -1,5 +1,7 @@
 <template>
     <div>
+        <p>지점</p>
+        <hr>
         <KakaoMap />
     </div>
 </template>
