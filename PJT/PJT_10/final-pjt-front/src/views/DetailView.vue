@@ -10,8 +10,13 @@
       <p>{{ post.updated_at }}</p>
       <hr>
       <p>{{ post.content }}</p>
+      <div v-if="post.user === userData.id">
+      <button @click="deletePost">삭제</button>
+      <RouterLink :to="{ name: 'EditPost', params: { post_pk: post_pk } }">수정</RouterLink> 
+      
+      </div>
       <hr>
-      <div v-if="post.comment_set.length > 0">
+      <div>
         <h2>댓글</h2>
         <form @submit.prevent="createComment">
           <label for="comment">댓글</label>
@@ -22,13 +27,12 @@
           <li v-for="comment in post.comment_set" :key="comment.id">
             {{ comment.id }}번 댓글: {{ comment.content }}
             {{ comment.user }}
+            <div>
             <button @click="deleteComment(comment.id)">삭제</button>
             <button @click="showEditForm(comment)">수정</button>
+            </div>
           </li>
         </ul>
-      </div>
-      <div v-else>
-        <p>No comments yet.</p>
       </div>
       <hr>
     </div>
@@ -46,10 +50,11 @@
 <script setup>
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, } from 'vue-router'
 import { useCommunityStore } from '../stores/community'
 import { useAuthStore } from '../stores/auth'
 import router from '../router'
+import { RouterLink } from 'vue-router'
 
 const authStore = useAuthStore()
 const token = authStore.token
@@ -57,7 +62,10 @@ const store = useCommunityStore()
 const route = useRoute()
 const post = ref(null)
 const content = ref(null)
+const userData = authStore.userData
+const post_pk = route.params.id
 
+console.log('dtaa', userData.id)
 // 댓글 수정용
 const showEditModal = ref(false)
 const editedContent = ref(null)
@@ -120,10 +128,11 @@ const deleteComment = function (commentId) {
   .catch(err => console.error('Error deleting comment:', err))
 }
 
-// 현재 유저
-const isCurrentUser = function (user) {
-  return authStore.currentUser && authStore.currentUser.id === user;
+const deletePost = () => {
+    console.log('포스트 삭제 완료')
+    router.push({ name:'Post' })
 }
+
 
 onMounted(() => {
   axios({
@@ -142,4 +151,14 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  z-index: 1000;
+  display: none; /* Hidden by default */
+}
 </style>

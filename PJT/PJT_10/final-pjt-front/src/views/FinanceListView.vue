@@ -1,10 +1,11 @@
 <template>
-    <div>
-        <h1>금융 아이템 목록 페이지</h1>
-        <!-- <RouterLink class="link" :to="{ name:'CreatePost' }">게시물 생성</RouterLink>  -->
-        <hr>
-        <FinanceList/>
+    <div class="two alt-two">
+        <h1>금융 아이템 목록 페이지
+            <span>예적금 목록</span>
+        </h1>
+        <br>
     </div>
+    <FinanceList/>
 </template>
 
 <script setup>
@@ -21,5 +22,6 @@ onMounted(()=> {
 </script>
 
 <style scoped>
+@import "@/views/FinanceListView.scss"
 
 </style>

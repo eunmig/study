@@ -1,0 +1,74 @@
+input {
+    height: 30px;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 200px; /* Add a width to control the size */
+    transition: border-color 0.3s ease-in-out; /* Add smooth transition effect */
+  }
+
+  input:focus {
+    border-color: #007BFF; /* Change border color when the input is focused */
+  }
+
+button {
+    height: 36px;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out; /* Add smooth transition effect */
+  }
+
+  button:hover {
+    background-color: #0056b3; /* Change background color on hover */
+  }
+  
+  .list{
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .wrapper {
+      margin-left: auto;
+      margin-right: auto;
+      width: 620px;
+      height: 420px;    
+  }
+
+  .first{
+      margin-top: 5px;
+      width: 600px;
+      height: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+  select{margin-left: 100px;
+          margin-top: 30px;
+  }
+  
+  .fir{
+      width :100px;
+  }
+  
+  .p{
+    text-align: left;
+  }
+  
+  .tag{
+    font-size: 10px;
+    display: inline-block;
+    margin-left: 20px;
+  }
+
+  .thi{
+    margin-left: 20px;
+  }

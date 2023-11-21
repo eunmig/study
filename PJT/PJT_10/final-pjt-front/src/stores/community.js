@@ -47,8 +47,6 @@ export const useCommunityStore = defineStore('community', () => {
     .catch(err => console.log(err))
   }
 
-  
-
   return { 
     posts, 
     categories,

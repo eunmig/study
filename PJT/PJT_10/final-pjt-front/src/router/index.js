@@ -8,6 +8,13 @@ import DetailView from '@/views/DetailView.vue'
 import FinanceListView from '@/views/FinanceListView.vue'
 import FinanceDetailView from '@/views/FinanceDetailView.vue'
 import BankView from '@/views/BankView.vue'
+import ExchangeView from '@/views/ExchangeView.vue'
+import ProfileView from '@/views/ProfileView.vue'
+import EditPostView from '@/views/EditPostView.vue'
+
+
+const isAuthenticated = true
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,7 +32,13 @@ const router = createRouter({
     {
       path: '/login',
       name: 'LogIn',
-      component: LogInView
+      component: LogInView,
+      beforeEnter: (to, from) => {
+        if (isAuthenticated && to.name == 'LogIn') {
+          console.log('이미 로그인되어 있습니다.')
+          return { name: 'home' }
+        }
+      }
     },
     {
       path: '/posts',
@@ -56,9 +69,30 @@ const router = createRouter({
       path: '/bank',
       name: 'Bank',
       component: BankView
-    }
-
+    },
+    {
+      path: '/exchange',
+      name: 'Exchange',
+      component: ExchangeView
+    },
+    {
+      path: '/profile',
+      name: 'Profile',
+      component: ProfileView
+    },
+    {
+      path: '/edit_post/:post_pk',
+      name: 'EditPost',
+      component: EditPostView
+    },
   ]
 })
-
+router.beforeEach((to, from) => {
+  const isAuthenticated = false
+  
+  if (!isAuthenticated && to.name !== 'LogIn') {
+    console.log('로그인이 필요합니다.')
+    return { name: 'LogIn' }
+  }
+})
 export default router

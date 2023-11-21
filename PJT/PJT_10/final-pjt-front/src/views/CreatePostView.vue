@@ -33,15 +33,16 @@
   const content = ref(null)
   const selectedCategory = ref(null)
   const token = authStore.token
-  
+  const userData = authStore.userData
+
   onMounted(() => {
     store.getCategories()
-  });
+  })
   
   const createPost = function () {
     axios({
       method: 'post',
-      url: `${store.API_URL}/api/v1/posts/${selectedCategory.value}/post/`,
+      url: `${store.API_URL}/community/posts/${selectedCategory.value}/post/`,
       headers: {
         Authorization: `Token ${token}`
       },
@@ -50,9 +51,10 @@
         content: content.value
       },
     }).then(() => {
-      router.push({ name: 'Home' })
+      router.push({ name: 'Post' })
     }).catch(err => console.log(err))
-  };
+  }
+
   </script>
   
   <style scoped>

@@ -23,9 +23,21 @@ export const useFinanceStore = defineStore('finance', () => {
         }).catch(err => console.log(err))
 
     }
+    
+    const saveDeposits = function() {
+        axios({
+            method: 'get',
+            url: `${API_URL}/finance/save-deposit-products/`
+        })
+        .then(res => {
+            getProducts()
+        })
+        .catch(err => console.log(err))
+    }
 
     return {
         getProducts,
+        saveDeposits,
         API_URL,
         products,
     }
