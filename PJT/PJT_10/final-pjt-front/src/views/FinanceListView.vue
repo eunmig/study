@@ -1,17 +1,6 @@
 <template>
-<<<<<<< HEAD
-    <div class="two alt-two">
-        <h1>금융 아이템 목록 페이지
-            <span>예적금 목록</span>
-        </h1>
-        <br>
-=======
-    <div>
-        <h1>금융 아이템 목록 페이지</h1>
-        <hr>
-        <FinanceList/>
->>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
-    </div>
+    <h1 class="title">금융 상품 목록</h1>
+    <h3 class="subtitle">예적금 목록</h3>
     <FinanceList/>
 </template>
 
@@ -25,10 +14,11 @@ const store = useFinanceStore()
 
 onMounted(()=> {
     store.getProducts()
+    console.log('onMount: FinancialListView.vue')
 })
 </script>
 
-<style scoped>
-@import "@/views/FinanceListView.scss"
+<style>
+@import "@/views/FinanceDetailView.scss"
 
 </style>

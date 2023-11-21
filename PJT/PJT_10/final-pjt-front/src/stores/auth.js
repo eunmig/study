@@ -7,6 +7,8 @@ export const useAuthStore = defineStore('auth', () => {
 
   const API_URL = 'http://127.0.0.1:8000'
 
+  
+  // 로그인 시 환율 정보 저장을 위함
   const getRates = function () {
     axios({
       method: 'get',
@@ -18,11 +20,22 @@ export const useAuthStore = defineStore('auth', () => {
     .catch(err => console.log(err))
 
   }
-<<<<<<< HEAD
 
-=======
-``
->>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
+
+  // 로그인 시 금융상품 저장하기
+
+  const getProducts = function() {
+    axios({
+      method: 'get',
+      url: `${API_URL}/finance/save-deposit-products/`
+    })
+    .then((res) => {
+      console.log('금융 상품 정보 저장')
+    })
+    .catch(err => console.log(err))
+  }
+
+
   // 회원가입 로직
   const signUp = function (payload) {
     const { username, password1, password2, email, salary } = payload
@@ -76,12 +89,9 @@ export const useAuthStore = defineStore('auth', () => {
       .then((res) => {
         token.value = res.data.key
         userId.value = `${username}`
-<<<<<<< HEAD
-        // getRates()
-        getUserData({ username })
-=======
         getRates()
->>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
+        getProducts()
+        getUserData({ username })
         window.alert('로그인 완료')
         router.push({ name: 'Home' })
       })
@@ -89,7 +99,6 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
 
-<<<<<<< HEAD
   const userData = ref([])
 
   const getUserData = function(payload) {
@@ -106,8 +115,6 @@ export const useAuthStore = defineStore('auth', () => {
     
   }
 
-=======
->>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
   const logOut = function () {
     axios({
       method: 'post',
@@ -116,21 +123,13 @@ export const useAuthStore = defineStore('auth', () => {
       .then((res) => {
         token.value = null
         userId.value = 'default'
-<<<<<<< HEAD
         router.push({ name: 'Home' })
-=======
-        router.push({ name: 'ArticleView' })
->>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
       })
       .catch((err) => {
         console.log(err)
       })
   }
 
-<<<<<<< HEAD
-=======
-  
->>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
 
   return { 
     API_URL, 
@@ -138,10 +137,8 @@ export const useAuthStore = defineStore('auth', () => {
     logIn,
     logOut,
     getRates,
-<<<<<<< HEAD
     getUserData,
-=======
->>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
+    getProducts,
     token,
     isAuthenticated,
     userId,

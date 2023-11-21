@@ -2,10 +2,10 @@
   <div>
   <table>
     <colgroup>
-      <col style="width: 250px;"> <!-- Adjust the width as needed -->
-      <col style="width: 400px;"> <!-- Adjust the width as needed -->
-      <col style="width: 150px;"> <!-- Adjust the width as needed -->
-      <col style="width: 350px;"> Adjust the width as needed
+      <col style="width: 250px;">
+      <col style="width: 400px;">
+      <col style="width: 150px;">
+      <col style="width: 350px;">
     </colgroup>
     <thead>
       <tr>
@@ -13,7 +13,6 @@
         <th>상품명</th>
         <th>공시 일자</th>
         <th>저축금리 / 저축 기간</th>
-        <!-- Add more headers if needed -->
       </tr>
     </thead>
 
