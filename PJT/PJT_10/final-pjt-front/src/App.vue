@@ -1,10 +1,18 @@
 <template>
   <div id="main-page">
+<<<<<<< HEAD
     <div v-if="authStore.isAuthenticated" class="logout-container">
       <form @submit.prevent="authStore.logOut">
         <input type="submit" value="로그아웃" class="logout-button">
       </form>
     </div>
+=======
+    <div v-if="authStore.isAuthenticated">
+      <form @submit.prevent="authStore.logOut">
+        <input type="submit" value="로그아웃">
+      </form>
+      </div>
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
     <div v-else class="login-status">
       로그인 상태
       <RouterLink class="link" :to="{ name:'SignUp' }">회원가입</RouterLink> | 
@@ -18,7 +26,10 @@
         <RouterLink class="link" :to="{ name:'FinanceItems' }">예적금 리스트</RouterLink> | 
         <RouterLink class="link" :to="{ name:'Bank' }">은행 지도</RouterLink> | 
         <RouterLink class="link" :to="{ name:'Exchange' }">환율</RouterLink> | 
+<<<<<<< HEAD
         <RouterLink class="link" :to="{ name:'Profile' }">프로필</RouterLink> | 
+=======
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
 
       </nav>
     </div>
@@ -113,5 +124,14 @@ body {
   height: 530px;
   margin: 0 auto;
 }
+<<<<<<< HEAD
+=======
+
+.carousel-item img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
 
 </style>

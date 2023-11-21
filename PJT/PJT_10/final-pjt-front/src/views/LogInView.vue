@@ -27,7 +27,10 @@
 <script setup>
 import { ref } from 'vue'
 import { useAuthStore } from '../stores/auth'
+<<<<<<< HEAD
 console.log('로그인창')
+=======
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
 
 const store = useAuthStore()
 

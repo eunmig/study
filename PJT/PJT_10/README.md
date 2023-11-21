@@ -32,6 +32,7 @@ git branch '(back/front)_기능' 으로 branch 생성
 1. 게시글/댓글 작성자만 수정, 삭제 기능 추가 DetailView.vue 
 2. 환율 api 기능 추가
 
+<<<<<<< HEAD
 2023/11/20
 ------------------
 npm install bootstrap bootstrap-vue-3
@@ -67,3 +68,7 @@ npm install -D sass
 3. figma 정리
 4. 발표 ppt
 5. readme 작성
+=======
+2023/11/17
+------------------
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b

@@ -9,11 +9,14 @@ import FinanceListView from '@/views/FinanceListView.vue'
 import FinanceDetailView from '@/views/FinanceDetailView.vue'
 import BankView from '@/views/BankView.vue'
 import ExchangeView from '@/views/ExchangeView.vue'
+<<<<<<< HEAD
 import ProfileView from '@/views/ProfileView.vue'
 import EditPostView from '@/views/EditPostView.vue'
 
 
 const isAuthenticated = true
+=======
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
 
 
 const router = createRouter({
@@ -74,6 +77,7 @@ const router = createRouter({
       path: '/exchange',
       name: 'Exchange',
       component: ExchangeView
+<<<<<<< HEAD
     },
     {
       path: '/profile',
@@ -85,6 +89,10 @@ const router = createRouter({
       name: 'EditPost',
       component: EditPostView
     },
+=======
+    }
+
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
   ]
 })
 router.beforeEach((to, from) => {

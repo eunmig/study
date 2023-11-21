@@ -22,7 +22,10 @@ urlpatterns = [
     path('community/', include('community.urls')),
     path('finance/', include('finance.urls')),
     path('exchange/', include('exchange.urls')),
+<<<<<<< HEAD
     path('account/', include('accounts.urls')),
+=======
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
     path('accounts/', include('dj_rest_auth.urls')),
     path('accounts/signup/', include('dj_rest_auth.registration.urls')),
 ]

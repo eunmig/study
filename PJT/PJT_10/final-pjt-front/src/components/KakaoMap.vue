@@ -1,5 +1,9 @@
 <template>
+<<<<<<< HEAD
   <h2>주변 은행 찾아보기</h2>
+=======
+  <h3>주변 은행 찾아보기</h3>
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
   <div class="box">
     <p class="p">원하는 은행을 지도에서 검색해보세요!</p>
     <div class="wrapper">
@@ -9,6 +13,7 @@
     <div class="list">
     </div>
   </div>
+<<<<<<< HEAD
   
   <div class="map-search">
     <form>
@@ -46,6 +51,33 @@
     <button class="btn btn-primary" @click="search">검색</button>
   </div>
   
+=======
+  
+  <div class="map-search">
+    <!-- <title>주소로 장소 표시하기</title> -->
+    <p></p>
+    <select id="sido" v-model="select_area" @input="selected">
+        <option v-for="sido in Object.keys(area)">{{ sido }}</option>
+    </select>
+    <select id="sigugun" v-model="select_sido">
+        <option v-for="sigugun in list_city">{{ sigugun }}</option>
+    </select>
+    <select class="thi" v-model="bank">
+      <option value="" selected disable3d hidden>은행</option>
+      <option value="하나은행">하나은행</option>
+      <option value="국민은행">국민은행</option>
+      <option value="SC제일은행">SC제일은행</option>
+      <option value="신한은행">신한은행</option>
+      <option value="우리은행">우리은행</option>
+      <option value="외환은행">외환은행</option>
+      <option value="한국시티은행">한국시티은행</option>
+      <option value="기업은행">기업은행</option>
+      <option value="농협">농협</option>
+    </select>
+    <button class="btn btn-primary" @click="search">검색</button>
+  </div>
+  
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
 </template>
    
 <script setup>
@@ -159,6 +191,15 @@
   
     const close = function(){
       
+<<<<<<< HEAD
+    }
+    // 마커에 클릭이벤트를 등록합니다
+    kakao.maps.event.addListener(marker, 'click', function() {
+        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>'); 
+        infowindow.open(map, marker);
+    })
+=======
     }
     // 마커에 클릭이벤트를 등록합니다
     kakao.maps.event.addListener(marker, 'click', function() {
@@ -172,8 +213,73 @@
 </script>
   
     
+<style scoped >
+input {
+    height: 30px;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 200px; /* Add a width to control the size */
+  }
+
+  button {
+    height: 36px;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .list{
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .wrapper {
+      margin-left: auto;
+      margin-right: auto;
+      width: 620px;
+      height: 420px;    
+  }
+
+  .first{
+      margin-top: 5px;
+      width: 600px;
+      height: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+  select{margin-left: 100px;
+          margin-top: 30px;
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
+  }
+  
+  
+</script>
+  
+<<<<<<< HEAD
+    
 <style scoped>
 @import "@/components/KakaoMap.scss"
 
+=======
+  .tag{
+    font-size: 10px;
+    display: inline-block;
+    margin-left: 20px;
+  }
+
+  .thi{
+    margin-left: 20px;
+  }
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
 </style>
   

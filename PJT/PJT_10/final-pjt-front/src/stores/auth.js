@@ -18,7 +18,11 @@ export const useAuthStore = defineStore('auth', () => {
     .catch(err => console.log(err))
 
   }
+<<<<<<< HEAD
 
+=======
+``
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
   // 회원가입 로직
   const signUp = function (payload) {
     const { username, password1, password2, email, salary } = payload
@@ -72,8 +76,12 @@ export const useAuthStore = defineStore('auth', () => {
       .then((res) => {
         token.value = res.data.key
         userId.value = `${username}`
+<<<<<<< HEAD
         // getRates()
         getUserData({ username })
+=======
+        getRates()
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
         window.alert('로그인 완료')
         router.push({ name: 'Home' })
       })
@@ -81,6 +89,7 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
 
+<<<<<<< HEAD
   const userData = ref([])
 
   const getUserData = function(payload) {
@@ -97,6 +106,8 @@ export const useAuthStore = defineStore('auth', () => {
     
   }
 
+=======
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
   const logOut = function () {
     axios({
       method: 'post',
@@ -105,13 +116,21 @@ export const useAuthStore = defineStore('auth', () => {
       .then((res) => {
         token.value = null
         userId.value = 'default'
+<<<<<<< HEAD
         router.push({ name: 'Home' })
+=======
+        router.push({ name: 'ArticleView' })
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
       })
       .catch((err) => {
         console.log(err)
       })
   }
 
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
 
   return { 
     API_URL, 
@@ -119,7 +138,10 @@ export const useAuthStore = defineStore('auth', () => {
     logIn,
     logOut,
     getRates,
+<<<<<<< HEAD
     getUserData,
+=======
+>>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b
     token,
     isAuthenticated,
     userId,
