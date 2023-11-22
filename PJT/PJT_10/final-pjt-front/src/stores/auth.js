@@ -13,6 +13,9 @@ export const useAuthStore = defineStore('auth', () => {
     axios({
       method: 'get',
       url: `${API_URL}/exchange/save/`,
+      headers: {
+        Authorization: `Token ${token}`
+      }
     })
     .then((res) => {
       console.log('환율 정보 저장')

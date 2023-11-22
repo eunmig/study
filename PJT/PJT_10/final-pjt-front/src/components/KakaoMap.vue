@@ -1,7 +1,12 @@
 <template>
-  <h2>주변 은행 찾아보기</h2>
+  <div class="two alt-two">
+    <h1>주변 은행 찾아보기
+        <span>원하는 은행을 지도에서 검색해보세요!</span>
+    </h1>
+    <br>
+  </div>
+
   <div class="box">
-    <p class="p">원하는 은행을 지도에서 검색해보세요!</p>
     <div class="wrapper">
       <div ref="container" class="first"></div>
       <div class="control-btns"></div>

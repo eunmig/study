@@ -1,36 +1,104 @@
+.create-post-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.post-form {
+  width: 500px;
+  max-width: 80%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+.label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+textarea {
+  height: 150px;
+  resize: none;
+}
+
 button {
-    margin-top: 10px;
-    width: 50%;
-    padding: 10px;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-    text-align: center;
-    background-color: rgb(110, 167, 252);
-    color: #fff;
-    border-radius: 10px;
-  }
-  
-  select {
-    margin-left: 20px;
-    margin-top: 30px;
-  }
-  
-  input {
-      width: 70%;
-      border: 1px solid rgb(197, 197, 248);
-      padding: 10px;
-      font-size: 16px;
-      background-color: transparent;
-      color: #000;
-      border-radius: 8px;
-    }
-  
-  /* div {
-    align-items: center;
-  } */
-  
-  textarea {
-    width: 70%;
-  }
-  
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 150px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-top: 20px;
+  margin-left: 0;
+}
+
+div{
+  position:relative;
+  padding: 2em;
+  display:block;
+}
+
+h1 {
+  text-align:center;
+  position: relative;
+  display: inline;
+  padding: 1em 0;
+}
+
+h1:before,
+h1:after{
+  content:'`';
+
+  position:absolute;
+  left: -1.2ex;
+  top: 0.2em;
+  width: 1em;
+  height: 1em;
+  font-size:300%;
+  -ms-transform: rotate(-40deg); /* IE 9 */
+  -webkit-transform: rotate(-40deg); /* Chrome, Safari, Opera */
+  transform: rotate(-40deg);}
+
+h1:after {
+  left: auto;
+  right: -1.2ex;
+  top: -0.1em;
+  -ms-transform: rotate(140deg); /* IE 9 */
+  -webkit-transform: rotate(140deg); /* Chrome, Safari, Opera */
+  transform: rotate(140deg);
+}

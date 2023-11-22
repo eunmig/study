@@ -1,47 +1,64 @@
 <template>
-  <div>
-    <h1>게시글 상세 정보</h1>
+  <div class="post-detail-container">
+    <div class="two alt-two">
+        <h1>게시글 상세 정보
+            <span>   </span>
+        </h1>
+        <br>
+    </div>
+    
     <div v-if="post">
-      <p>{{ post.category.name }}</p>
-      <p>{{ post.id }}번 글</p>
-      <h3>{{ post.title }}</h3>
-      <hr>
-      <p>{{ post.created_at }}</p>
-      <p>{{ post.updated_at }}</p>
-      <hr>
-      <p>{{ post.content }}</p>
-      <div v-if="post.user === userData.id">
-      <button @click="deletePost">삭제</button>
-      <RouterLink :to="{ name: 'EditPost', params: { post_pk: post_pk } }">수정</RouterLink> 
-      
+      <div class="post-meta">
+        <p class="category">카테고리 : {{ post.category.name }}</p>
+        <p class="post-id">No. : {{ post.id }}번 글</p>
+        <h3>Title : {{ post.title }}</h3>
+        <hr>
+        <p class="date">작성일: {{ post.created_at }}</p>
+        <p class="date">최종 수정일: {{ post.updated_at }}</p>
+        <hr>
+        <p class="post-content">{{ post.content }}</p>
       </div>
+
+      <div v-if="post.user === userData.id" class="post-actions">
+        <button @click="deletePost" class="delete-btn">게시글 삭제</button>
+        <RouterLink :to="{ name: 'EditPost', params: { post_pk: post_pk } }" class="edit-link">게시글 수정</RouterLink>
+      </div>
+
       <hr>
-      <div>
-        <h2>댓글</h2>
-        <form @submit.prevent="createComment">
-          <label for="comment">댓글</label>
-          <input type="text" id="content" v-model.trim="content">
-          <button type="submit">댓글 작성</button>
+
+      <div class="comments-section">
+        <h2>Comments</h2>
+
+        <form @submit.prevent="createComment" class="comment-form">
+          <input type="text" id="content" v-model.trim="content" placeholder="댓글을 입력하세요" class="comment-input">
+          <button type="submit" class="comment-btn">댓글 작성</button>
         </form>
-        <ul>
-          <li v-for="comment in post.comment_set" :key="comment.id">
-            {{ comment.id }}번 댓글: {{ comment.content }}
-            {{ comment.user }}
-            <div>
-            <button @click="deleteComment(comment.id)">삭제</button>
-            <button @click="showEditForm(comment)">수정</button>
+
+        <ul class="comment-list">
+          <li v-for="comment in post.comment_set" :key="comment.id" class="comment-item">
+            <div class="comment-content">
+              <p class="comment-id">번호 : {{ comment.id }}번 댓글</p>
+              <p class="comment-text">댓글 내용 : {{ comment.content }}</p>
+              <p class="comment-user">작성자: {{ comment.user }}</p>
+            </div>
+
+            <div v-if="comment.user === userData.id" class="comment-actions">
+              <button @click="deleteComment(comment.id)" class="delete-btn">댓글 삭제</button>
+              <button @click="showEditForm(comment)" class="edit-btn">댓글 수정</button>
             </div>
           </li>
         </ul>
       </div>
-      <hr>
+    <hr>
     </div>
+
     <div v-else>Loading</div>
+
     <div class="modal" v-show="showEditModal">
       <form @submit.prevent="editComment">
-        <label for="editedContent">Edit Comment:</label>
-        <input type="text" id="editedContent" v-model.trim="editedContent">
-        <button type="submit">Save</button>
+        <label for="editedContent">댓글 수정:</label>
+        <input type="text" id="editedContent" v-model.trim="editedContent" class="edit-input">
+        <button type="submit" class="edit-btn">저장</button>
       </form>
     </div>
   </div>
@@ -151,14 +168,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  z-index: 1000;
-  display: none; /* Hidden by default */
-}
+@import "@/views/DetailView.scss"
+
 </style>

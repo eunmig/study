@@ -104,6 +104,7 @@ const toggleLike = async () => {
   }
 }
 
+
 onMounted(() => {
   fetchData();
   console.log('onMount: FinanceDetailView');

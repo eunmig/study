@@ -1,17 +1,19 @@
 <template>
   <div>
     <div class="popup-content">
-      <h2>Change Password</h2>
+      <br>
+      <h2>비밀번호 변경하기</h2>
+      <br>
+
       <form @submit.prevent="changePW">
-        <label for="new_password1">New Password:</label>
+        <label for="new_password1">New Password : </label>
         <input v-model="newPassword1" type="password" id="new_password1" name="new_password1" required>
-
-        <label for="new_password2">Confirm Password:</label>
+        <br>
+        <label for="new_password2">Confirm Password : </label>
         <input v-model="newPassword2" type="password" id="new_password2" name="new_password2" required>
-
+        
         <!-- Display error messages if passwords don't match or other validation issues -->
         <div v-if="passwordsDoNotMatch">Passwords do not match</div>
-
         <button type="submit">Submit</button>
       </form>
     </div>
@@ -61,4 +63,6 @@ const changePW = function () {
 </script>
 
 <style scoped>
+@import "@/components/PasswordChangePopup.scss"
+
 </style>

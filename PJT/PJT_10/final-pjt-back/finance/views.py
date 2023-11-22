@@ -8,6 +8,7 @@ from django.conf import settings
 from .serializers import ProductsSerializer, OptionsSerializer, ProductsListSerializer
 from .models import DepositOptions, DepositProducts, LikeProducts
 
+
 @api_view(['GET'])
 def index(request):
     api_key = settings.FINANCE_API_KEY
@@ -167,3 +168,5 @@ def liked_products(request):
     
     serializer = ProductsSerializer(liked_products_data, many=True)
     return Response(serializer.data)
+
+

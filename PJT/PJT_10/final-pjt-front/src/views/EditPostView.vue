@@ -1,24 +1,31 @@
 <template>
-    <div>
-      <form @submit.prevent="editPost">
-        <label for="category">카테고리: </label>
-        <select id="category" v-model="selectedCategory">
+  <div class="create-post-container">
+    <h1>Edit Post</h1>
+    <form @submit.prevent="editPost" class="post-form">
+      <div class="form-field">
+        <label for="category">카테고리 : </label>
+        <select id="category" v-model="selectedCategory" class="select">
           <option v-for="category in store.categories" :key="category.id" :value="category.id">
             {{ category.name }}
           </option>
-        </select><br>
-  
-        <label for="title">제목: </label>
-        <input type="text" id="title" v-model.trim="title" /><br>
-  
-        <label for="content">내용: </label>
-        <textarea name="content" id="content" v-model.trim="content"></textarea><br>
-  
-        <button type="submit">게시물 수정</button>
-      </form>
-    </div>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="title">제목 : </label>
+        <input type="text" id="title" v-model.trim="title" class="input" placeholder="수정할 제목을 작성해주세요." />
+      </div>
+
+      <div class="form-field">
+        <label for="content">내용 : </label>
+        <textarea name="content" id="content" v-model.trim="content" class="input" placeholder="수정할 내용을 작성해주세요."></textarea>
+      </div>
+
+      <button type="submit">수정하기</button>
+    </form>
+  </div>
 </template>
-  
+
 <script setup>
     import { onMounted, ref } from 'vue'
     import { useCommunityStore } from '@/stores/community'
@@ -58,5 +65,6 @@
 </script>
 
 <style scoped>
+@import "@/views/CreatePostView.scss"
 
 </style>
