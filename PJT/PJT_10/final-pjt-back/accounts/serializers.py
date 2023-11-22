@@ -21,7 +21,6 @@ class CustomRegisterSerializer(RegisterSerializer):
         return cleaned_data
     
 
-<<<<<<< HEAD
 # class UserProfileSerializer(serializers.ModelSerializer):
 #     salary = serializers.IntegerField()
 
@@ -34,11 +33,3 @@ class UserDataSerializer(serializers.ModelSerializer):
         model = User
         fields =  '__all__'
 
-=======
-class UserProfileSerializer(serializers.ModelSerializer):
-    salary = serializers.IntegerField()
-
-    class Meta:
-        model = User
-        fields = ['username', 'email', 'first_name', 'last_name', 'salary']
->>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b

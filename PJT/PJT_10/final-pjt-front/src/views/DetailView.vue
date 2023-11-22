@@ -123,7 +123,7 @@ const deleteComment = function (commentId) {
   })
   .then(() => {
     post.value.comment_set = post.value.comment_set.filter(comment => comment.id !== commentId);
-    console.log(`Comment ${commentId} deleted successfully`)
+    console.log('댓글 삭제 완료')
   })
   .catch(err => console.error('Error deleting comment:', err))
 }

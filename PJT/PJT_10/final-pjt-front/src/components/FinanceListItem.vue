@@ -19,7 +19,7 @@
             <td style="width: 150px;">{{ product.dcls_strt_day }}</td>
             <td style="width: 350px;">
               <div v-for="option in product.depositoptions_set">
-                {{ option.intr_rate }} / {{ option.save_trm || '-' }}
+                {{ option.intr_rate }} / {{ option.save_trm }}
               </div>
             </td>
           </tr>

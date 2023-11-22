@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #fff;
+  }
+  
+  h1 {
+    color: #5fbaa7;
+  }
+  
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+  }
+  
+  select {
+    margin: 0px;
+    padding: 10px 20px 10px 10px;
+    border-radius: 10px;
+    border: 1px solid #777;
+    background: transparent;
+    text-align: right;
+    padding: 1px 2px;
+    font-size: 16px;
+  }
+  
+  #otherAmount,
+  #krwAmount {
+    font-size: 30px;
+  }
+  
+  label, input {
+    padding-bottom: 10px;
+  }
+  
+  .rate {
+    color: #5fbaa7;
+    font-size: 18px;
+    padding: 0 10px;
+  }
+  
+  .input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+  }
+  
+.exchange-img {
+    width: 400px;
+    height: 400px;
+    margin-top: auto;
+}
+  

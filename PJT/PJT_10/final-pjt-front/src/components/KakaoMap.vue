@@ -2,9 +2,11 @@
   <h2>주변 은행 찾아보기</h2>
   <div class="box">
     <p class="p">원하는 은행을 지도에서 검색해보세요!</p>
-    <div class="map">
+    <div class="wrapper">
       <div ref="container" class="first"></div>
       <div class="control-btns"></div>
+    </div>
+    <div class="list">
     </div>
   </div>
   
@@ -170,8 +172,8 @@
 </script>
   
     
-<style>
-@import "@/components/OptionList.scss"
+<style scoped>
+@import "@/components/KakaoMap.scss"
 
 </style>
   

@@ -1,27 +1,26 @@
 <template>
-    <div>
-      <h1>Currency Converter</h1>
-      <div v-if="currencies.length"> 
-        <div>
-          <label for="targetCurrency">Target Currency:</label>
-          <select v-model="targetCurrency" id="targetCurrency">
-            <option v-for="currency in currencies" :key="currency.id" :value="currency.id">
-              {{ currency.korean_name }} ({{ currency.country }})
-            </option>
-          </select>
-        </div>
-  
-        <div>
-          <label for="otherAmount">{{ targetCurrencyLabel }}:</label>
-          <input v-model="otherAmount" type="number" :id="otherAmountId" @input="convertCurrency(currencies.find(c => c.id === targetCurrency).currency_name)" />
-        </div>
-
-        <div>
-          <label for="krwAmount">KRW:</label>
-          <input v-model="krwAmount" type="number" id="krwAmount" @input="convertCurrency('KRW')" />
-        </div>
-      </div>
+  <div>
+    <img src="@/assets/Exchange-Rate.png" alt="Exchange-Rate" class="exchange-img">
+    <h1>Exchange Rate Calculator</h1>
+    <h5>Choose the currency and the amounts to get the exchange rate</h5>
+    <div v-if="currencies.length"> 
+      <label for="targetCurrency">Target Currency:</label>
+      <select v-model="targetCurrency" id="targetCurrency">
+        <option v-for="currency in currencies" :key="currency.id" :value="currency.id">
+          {{ currency.korean_name }} ({{ currency.country }})
+        </option>
+      </select>
     </div>
+  </div>
+  
+  <div class="input-container">
+    <label for="otherAmount">{{ targetCurrencyLabel }}:</label>
+    <input v-model="otherAmount" type="number" :id="otherAmountId" @input="convertCurrency(currencies.find(c => c.id === targetCurrency).currency_name)" />
+
+    <label for="krwAmount">KRW:</label>
+    <input v-model="krwAmount" type="number" id="krwAmount" @input="convertCurrency('KRW')" />
+  </div>
+
   </template>
   
   <script setup>
@@ -97,7 +96,8 @@
   </script>
   
   
-  <style scoped>
+<style scoped>
+@import "@/views/ExchangeView.scss"
 
-  </style>
+</style>
   

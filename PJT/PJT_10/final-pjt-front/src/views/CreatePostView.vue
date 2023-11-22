@@ -7,13 +7,23 @@
             {{ category.name }}
           </option>
         </select><br>
-  
-        <label for="title">제목: </label>
-        <input type="text" id="title" v-model.trim="title" /><br>
-  
-        <label for="content">내용: </label>
-        <textarea name="content" id="content" v-model.trim="content"></textarea><br>
-  
+
+        <br>
+
+        <div class="form-field">
+          <label for="title">제목: </label>
+          <br>
+          <input type="text" id="title" v-model.trim="title" class="input"/>
+        </div>
+
+        <br>
+
+        <div class="form-field">
+          <label for="content">내용: </label>
+          <br>
+          <textarea name="content" id="content" v-model.trim="content" class="input"></textarea>
+        </div>
+
         <button type="submit">게시물 작성</button>
       </form>
     </div>
@@ -57,7 +67,8 @@
 
   </script>
   
-  <style scoped>
-  
-  </style>
+<style scoped>
+@import "@/views/CreatePostView.scss"
+
+</style>
   

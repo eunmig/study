@@ -28,3 +28,24 @@ class User(AbstractUser):
             self.salary_level = 0  # or any other default value
 
         super(User, self).save(*args, **kwargs)
+
+class Car(models.Model):
+    car_name = models.CharField(max_length=20, unique=True)
+    price = models.IntegerField()
+    year = models.TextField()
+    salary_level = models.IntegerField()
+
+    def save(self, *args, **kwargs):
+
+        if 0 <= self.price < 2000:
+            self.salary_level = 1
+        elif 2000 <= self.price < 4000:
+            self.salary_level = 2
+        elif 4000 <= self.price < 5000:
+            self.salary_level = 3
+        elif 5000 <= self.price < 8000:
+            self.salary_level = 4
+        else:
+            self.salary_level = 0 
+
+        super(User, self).save(*args, **kwargs)

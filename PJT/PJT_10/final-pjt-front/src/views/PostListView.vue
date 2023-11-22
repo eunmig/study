@@ -1,10 +1,12 @@
 <template>
-    <div>
-        <h1>게시글 목록 페이지</h1>
-        <RouterLink class="link" :to="{ name:'CreatePost' }">게시물 생성</RouterLink> 
-        <hr>
-        <PostList />
+    <div class="two alt-two">
+        <h1>게시글 목록 페이지
+            <span>   </span>
+        </h1>
+        <br>
     </div>
+    <RouterLink class="create-post" :to="{ name:'CreatePost' }">게시물 생성</RouterLink> 
+    <PostList />
 </template>
 
 <script setup>
@@ -22,6 +24,7 @@ onMounted(() => {
 
 </script>
 
-<style scoped>
+<style lang="scss">
+@import "@/views/PostListView.scss";
 
 </style>

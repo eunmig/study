@@ -1,60 +1,77 @@
 body {
-    margin: 20px;
-    display: flex;
-    justify-content: center; /* 수평 가운데 정렬 */
-    align-items: center; /* 수직 가운데 정렬 */
-    height: 100vh; /* 화면 전체 높이만큼 가운데 정렬 */
-  }
-  
-  div{
-    /* display: inline-block; */
-    text-align: center;
-  }
-  
-  h1{
-    color: #333;
-    border-bottom: 4px solid #a79600;
-    padding-bottom: 5px;
-    position: relative;
-  }
-  
-  h1:before{
-  /*     content: '';
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      width: 20px;
-      height: 20px;
-      background: white;
-      border-left: 4px solid #a79600;
-     */
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: 30px;
-    bottom: -30px;
-    border: 15px solid;
-    border-color: #a79600 transparent transparent #a79600;
-  }
-  
-  h1:after{
-  /*     content: '';
-      position: absolute;
-      bottom: -20px;
-      left: 49%;
-      width: 15px;
-      height: 31px;
-      transform: rotate(51deg);
-      border-right: 4px solid #a79600; */
-      
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: 34px;
-    bottom: -20px;
-    border: 15px solid;
-    border-color: #fff transparent transparent #fff;
-  }
-  
+  margin: 20px;
+  display: flex;
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  height: 100vh; /* 화면 전체 높이만큼 가운데 정렬 */
+}
+
+div{
+  text-align: center;
+}
+
+.content {
+  color: #333;
+  border-bottom: 4px solid #a79600;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+content:before{
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 30px;
+  bottom: -30px;
+  border: 15px solid;
+  border-color: #a79600 transparent transparent #a79600;
+}
+
+content:after{
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 34px;
+  bottom: -20px;
+  border: 15px solid;
+  border-color: #fff transparent transparent #fff;
+}
+
+#carouselExampleIndicators {
+  margin-top: 60px; /* nav의 아래에 위치하도록 조정 */
+  z-index: 1; /* nav 위에 나타나도록 조정 */
+  position: sticky;
+}
+
+.carousel-item {
+  text-align: center; /* 이미지 중앙 정렬 */
+}
+
+.carousel-inner img {
+  display: inline-block;
+  top: 45px;
+  max-width: 100%;
+  max-height: 550px; /* 적절한 높이로 조절하세요 */
+  height: auto;
+  position: relative;
+}
+
+.carousel-caption {
+  position: absolute;
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+  left: 30px;
+  right: 0;
+  top: 60%; /* 위에서 중앙으로 이동 */
+  transform: translateY(-50%);
+  padding: 0 20px; /* 원하는 여백 값 조절 */
+}
+
+.carousel-caption-img {
+  width: 60%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+}

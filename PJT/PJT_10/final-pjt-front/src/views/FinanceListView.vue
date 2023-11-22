@@ -1,7 +1,12 @@
 <template>
-    <h1 class="title">금융 상품 목록</h1>
-    <h3 class="subtitle">예적금 목록</h3>
+    <div class="two alt-two">
+        <h1>금융 아이템 목록 페이지
+            <span>예적금 목록</span>
+        </h1>
+        <br>
+    </div>
     <FinanceList/>
+    <br>
 </template>
 
 <script setup>
@@ -18,7 +23,7 @@ onMounted(()=> {
 })
 </script>
 
-<style>
-@import "@/views/FinanceDetailView.scss"
+<style scoped>
+@import "@/views/FinanceListView.scss"
 
 </style>

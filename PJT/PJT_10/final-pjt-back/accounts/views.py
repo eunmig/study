@@ -1,5 +1,4 @@
 from django.shortcuts import render
-<<<<<<< HEAD
 from rest_framework import generics, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
@@ -47,18 +46,3 @@ def update_profile(request, user_pk):
         return Response(serializer.data)
     else:
         return Response(serializer.errors, status=400)
-=======
-from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
-from django.contrib.auth.models import User
-from .serializers import UserProfileSerializer
-
-# Create your views here.
-
-@permission_classes([IsAuthenticated])
-class UserProfileView(generics.RetrieveUpdateAPIView):
-    serializer_class = UserProfileSerializer
-
-    def get_object(self):
-        return self.request.user
->>>>>>> 5f1367ace20c3b6af39823011830c3433fb7eb1b

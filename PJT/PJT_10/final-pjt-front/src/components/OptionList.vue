@@ -1,6 +1,6 @@
 <template>
+  <h3 style="text-align: center;">상품 종류</h3>
   <div>
-    <h3 class="title">상품 종류</h3>
     <table>
       <thead>
         <tr>
