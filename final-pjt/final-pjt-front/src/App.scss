@@ -1,0 +1,88 @@
+/* Login status styles */
+.login-status {
+  position: fixed;
+  top: 0;
+  right: 10px;
+  padding: 15px;
+  background-color: #ffffff; /* White background */
+  color: #0d0000; /* Text color */
+  z-index: 2;
+  width: calc(100% - 100px);
+}
+
+/* Navigation Styles */
+nav {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: #fdfdfd; /* Google blue */
+  padding: 10px 0;
+  z-index: 2;
+}
+
+.link {
+  color: #130000;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+.link2 {
+  color: #4242428e;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+}
+
+.link:hover {
+  background-color: #333; /* Light gray on hover */
+}
+
+.nav-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px; /* Adjust the distance from the navigation bar */
+}
+
+/* Main page styles */
+.main-page {
+  background-color: #ffffff; /* White background */
+  color: #333; /* Text color */
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 1000px; /* Adjust the maximum width of the main page */
+}
+
+.main-content {
+  padding-top: 40px; /* Adjust the padding to be equal to the height of your fixed navbar */
+  margin: 20px;
+}
+
+.logout-button {
+  position: fixed;
+  top: 0;
+  right: 10px;
+  width: 100px;
+  height: 40px;
+  background-color: #ffffff;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 16px;
+  color: #000000;
+  border: 2px solid rgb(198, 198, 202);
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.logout-container {
+  position: fixed;
+  top: 0;
+  right: 10px;
+  padding: 25px;
+  background-color: #ffffff; /* White background */
+  color: #0d0000; /* Text color */
+  z-index: 2;
+  width: calc(100%);
+}

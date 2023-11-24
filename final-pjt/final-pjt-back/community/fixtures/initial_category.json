@@ -1,0 +1,5 @@
+[
+    {"model": "community.category", "pk": 1, "fields": {"name": "금융상품"}},
+    {"model": "community.category", "pk": 2, "fields": {"name": "자동차"}},
+    {"model": "community.category", "pk": 3, "fields": {"name": "자유게시판"}}
+]
