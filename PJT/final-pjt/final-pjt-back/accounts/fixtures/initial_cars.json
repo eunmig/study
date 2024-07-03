@@ -1,0 +1,20 @@
+[
+    {"model": "accounts.car", "pk": 1, "fields": {"car_name": "스파크", "price": 1500, "year": "2022", "salary_level": 1}},
+    {"model": "accounts.car", "pk": 2, "fields": {"car_name": "모닝", "price": 1600, "year": "2023", "salary_level": 1}},
+    {"model": "accounts.car", "pk": 3, "fields": {"car_name": "레이", "price": 1900, "year": "2023", "salary_level": 1}},
+    {"model": "accounts.car", "pk": 4, "fields": {"car_name": "k3", "price": 2500, "year": "2023", "salary_level": 2}},
+    {"model": "accounts.car", "pk": 5, "fields": {"car_name": "아반떼", "price": 2800, "year": "2023", "salary_level": 2}},
+    {"model": "accounts.car", "pk": 6, "fields": {"car_name": "k5", "price": 3500, "year": "2023", "salary_level": 2}},
+    {"model": "accounts.car", "pk": 7, "fields": {"car_name": "스포티지", "price": 3900, "year": "2023", "salary_level": 2}},
+    {"model": "accounts.car", "pk": 8, "fields": {"car_name": "투싼", "price": 3900, "year": "2023", "salary_level": 2}},
+    {"model": "accounts.car", "pk": 9, "fields": {"car_name": "소나타", "price": 3900, "year": "2023", "salary_level": 2}},
+    {"model": "accounts.car", "pk": 10, "fields": {"car_name": "k8", "price": 4600, "year": "2023", "salary_level": 3}},
+    {"model": "accounts.car", "pk": 11, "fields": {"car_name": "카니발", "price": 4800, "year": "2023", "salary_level": 3}},
+    {"model": "accounts.car", "pk": 12, "fields": {"car_name": "싼타페", "price": 5000, "year": "2023", "salary_level": 3}},
+    {"model": "accounts.car", "pk": 13, "fields": {"car_name": "g70", "price": 5000, "year": "2023", "salary_level": 3}},
+    {"model": "accounts.car", "pk": 14, "fields": {"car_name": "gv70", "price": 6000, "year": "2023", "salary_level": 4}},
+    {"model": "accounts.car", "pk": 15, "fields": {"car_name": "gv80", "price": 7800, "year": "2023", "salary_level": 4}},
+    {"model": "accounts.car", "pk": 16, "fields": {"car_name": "bmwi5", "price": 9300, "year": "2023", "salary_level": 5}},
+    {"model": "accounts.car", "pk": 17, "fields": {"car_name": "벤츠e클래스", "price": 10000, "year": "2023", "salary_level": 5}},
+    {"model": "accounts.car", "pk": 18, "fields": {"car_name": "아우디a6", "price": 9900, "year": "2023", "salary_level": 5}}
+]
