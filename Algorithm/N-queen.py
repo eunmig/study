@@ -26,5 +26,3 @@ def dfs(queen, row, n):
 def solution(n):
     # 퀸의 위치를 저장할 리스트
     return dfs([0] * n, 0, n)
-
-n = 4
